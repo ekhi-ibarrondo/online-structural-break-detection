@@ -6,7 +6,7 @@ The detailed version of the [README](../README.md). Scores are in leaderboard po
 - Every series is judged against its own past: AR whitening and ranks against the history, and detectors z-scored against null streams cut from the same history.
 - Sequential detectors (FOCuS, CUSUM, Shiryaev-Roberts mixtures, GARCH scores) feed gradient boosting, a ridge regression and a supervised GRU; three more GRUs are pre-trained without labels on breaks inserted into training histories, then fine-tuned.
 - Each member's raw score becomes a percentile against the training series at the same step; the committee averages them in log-odds with fixed integer weights.
-- The code is deterministic to the bit on x86-64 Linux, and checked against the submitted code on 151,820 points.
+- The code gives the same bits as the submitted code on x86-64 Linux without AVX-512, checked on 151,820 points.
 - 66.01 on the private leaderboard (new data), 65.99 on the public one, 66.18 in CV.
 
 ## 1. The problem
@@ -19,14 +19,14 @@ In the competition's public webinars, the organisers describe the breaks as buil
 
 TS-AUC pools, over all online steps, every pair of one positive point (a series that has already broken at step $t$) and one negative point (a series that has not) at the same step:
 
-$$
+```math
 \mathrm{TS\text{-}AUC} = \frac{\sum_t \sum_{i \in P_t} \sum_{j \in N_t} \left( \mathbb{1}[s_{i,t} > s_{j,t}] + \tfrac{1}{2}\mathbb{1}[s_{i,t} = s_{j,t}] \right)}{\sum_t |P_t|\,|N_t|}
-$$
+```
 
 Three consequences shaped the design:
 
 - **Only the ranking between series at the same step matters.** Calibration across steps is irrelevant, and ties cost half a pair each.
-- **Steps are weighted by $|P_t|\,|N_t|$.** On the training set most of the weight lies between steps 90 and 600 and peaks near step 218, so very early detection and very late breaks count little.
+- **Steps are weighted by $`|P_t|\,|N_t|`$.** On the training set most of the weight lies between steps 90 and 600 and peaks near step 218, so very early detection and very late breaks count little.
 - **The ideal score is the posterior probability of a break** given the history and the points so far. With known laws before and after the break and a flat prior on its time, this posterior is a monotone function of a Shiryaev-Roberts statistic mixed over the break types (Tartakovsky, Nikiforov and Basseville, 2014); the model approximates it with learned members.
 
 [`breakdetect/metrics.py`](../breakdetect/metrics.py) implements the formula and is tested against a pair-by-pair count.
@@ -73,9 +73,9 @@ $$p_{m,t} = \hat F_{m,t}(r_{m,t})$$
 
 The committee averages the members in log-odds space with fixed integer weights $w_m$ and maps the mean back to $[0, 1]$:
 
-$$
+```math
 s_t = \sigma\!\left( \frac{1}{W} \sum_m w_m \,\mathrm{logit}(p_{m,t}) \right), \qquad W = \sum_m w_m
-$$
+```
 
 where $\sigma$ is the logistic function, each $p_{m,t}$ is clipped to $[10^{-6}, 1 - 10^{-6}]$ and $s_t$ is clipped to $[10^{-9}, 1 - 10^{-9}]$ and rounded to float32. The final score ranks series at each step; it is not a calibrated probability.
 
