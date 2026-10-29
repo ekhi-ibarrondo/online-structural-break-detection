@@ -18,7 +18,7 @@ Ekhi Ibarrondo Zorroza · BSc Finance (Investments), Henley Business School · <
 
 Ten models read a time series one point at a time and, after each new point, give one score from 0 to 1: how likely it is that the series has already had a structural break, a lasting change in its mean, its volatility, its dependence on the past or the shape of its distribution.
 
-I didn't write any of the code myself. AI agents wrote it, and they also read research papers and ran the experiments. My part was to:
+I didn't write any of the code myself. I directed AI agents, each with its own job: some read research papers, some ran experiments, some wrote the code and others reviewed it. My part was to:
 - Check and question their work, and give my own ideas
 - Pick the AI model and the effort level for each job
 - Decide what went ahead and approve every submission
