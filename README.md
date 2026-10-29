@@ -139,6 +139,8 @@ python scripts/demo.py                 # scores 12 simulated series, about a min
 # TS-AUC = 0.7620 (76.20 points) on 12 synthetic series
 ```
 
+On Windows, create and activate the environment with `py -3.12 -m venv .venv` and `.venv\Scripts\activate`.
+
 To score the series in the figure at the top:
 
 ```python
