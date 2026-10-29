@@ -1,0 +1,28 @@
+{
+  "format": "reads_three_others",
+  "width": 468,
+  "trace_names": [
+    "z_focus_var",
+    "z_sanso_k2",
+    "z_mix_sr_var",
+    "z_hermite",
+    "z_pot",
+    "z_qms",
+    "z_focus_mean",
+    "z_mix_sr_mean",
+    "z_ar_local",
+    "z_sign_dep",
+    "z_ar_split",
+    "z_garch_q",
+    "z_garch_hr",
+    "z_garch_cusum",
+    "z_garch_lvl",
+    "z_garch_resid",
+    "z_bn_f",
+    "z_bn_h",
+    "z_bn_fs",
+    "z_bn_hs",
+    "z_br_var_w",
+    "z_br_rankvar_w"
+  ]
+}

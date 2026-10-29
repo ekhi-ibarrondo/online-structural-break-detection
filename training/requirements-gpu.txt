@@ -1,0 +1,5 @@
+# reads_two_rebuilds and the sequence networks (broken_or_not, which_one_broke, blind_to_size); install a CUDA
+# build of PyTorch for your GPU.
+-r requirements.txt
+torch>=2.6
+scipy

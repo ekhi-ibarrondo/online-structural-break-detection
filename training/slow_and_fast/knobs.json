@@ -1,0 +1,6 @@
+{
+  "n_trees": 200,
+  "learning_rate": 0.05,
+  "min_data_in_leaf": 3000,
+  "lambda_l2": 10.0
+}

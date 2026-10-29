@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Online structural break detection: my final model for the ADIA Lab Structural Break Challenge: Real-Time Edition (2026)"
+authors:
+  - family-names: "Ibarrondo Zorroza"
+    given-names: "Ekhi"
+version: 1.0.0
+date-released: 2026-10-29
+license: MIT
+repository-code: "https://github.com/ekhi-ibarrondo/online-structural-break-detection"
+keywords:
+  - structural breaks
+  - change-point detection
+  - online detection
+  - time series
+  - gradient boosting
+  - recurrent neural networks
+abstract: >-
+  Ten models read a time series one point at a time and, after each point,
+  give a score from 0 to 1; higher means a break is more likely. 66.01 points
+  (TS-AUC × 100) on the private leaderboard, 23rd of 729 teams.

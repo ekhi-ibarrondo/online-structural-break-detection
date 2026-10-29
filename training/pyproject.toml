@@ -1,0 +1,14 @@
+[project]
+name = "online-structural-break-detection-training"
+version = "1.0.0"
+description = "Training recipes for the committee of online structural-break detectors."
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+# Single-letter mathematical names (O = online block, I = indicator, l = log ratio) are kept.
+ignore = ["E741"]

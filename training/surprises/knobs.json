@@ -1,0 +1,12 @@
+{
+  "learning_rate": 0.03,
+  "num_iterations": 150,
+  "num_leaves": 15,
+  "min_data_in_leaf": 1000,
+  "feature_fraction": 0.5,
+  "bagging_fraction": 0.3,
+  "lambda_l2": 10.0,
+  "max_depth": 6,
+  "row_stride": 5,
+  "max_bin": 63
+}
