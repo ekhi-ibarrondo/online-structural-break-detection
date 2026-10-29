@@ -63,7 +63,7 @@ Three consequences shaped the design:
 | Blind to size | The same channels, computed on the series divided by a running estimate of volatility | The same architecture |
 | Float-grid detector | Each new value against the grid of values that the history sits on | No supervised training: log-likelihood ratio of grid membership, accumulated with a Shiryaev-Roberts statistic |
 
-The three pre-trained networks were trained on the 8,000 search series only. In a pilot on a smaller prototype (one fold), pre-training clearly beat training it from scratch.
+The three pre-trained networks were trained on the 8,000 cross-validation series only, never on the 2,000 held out. In a pilot on a smaller prototype (one fold), pre-training clearly beat training it from scratch.
 
 ## 5. Calibration and fusion
 
@@ -122,7 +122,7 @@ Before this release, the cleaned-up code was checked against the code that was s
 
 The final model scored 66.01 on the private leaderboard (new data, 23rd of 729 teams), 65.99 on the public one and 66.18 in CV (optimistic); the official baseline scores 51.45 on the training set, and guessing 50. On every one of the 12 trained submissions, the public score was below the CV, by 0.11 to 0.59 points (mean 0.31). For the first three of them, the CV used all 10,000 series.
 
-**Where the edge comes from** (search CV, Shapley values over three groups of members): the four rebuilds together with the two models trained partly on them carry 47% of the edge over guessing, the three pre-trained networks 44%, and the float-grid detector the rest. The difference between the first two groups is not conclusive (1.6 standard errors).
+**Where the edge comes from** (cross-validation on the 8,000 series, Shapley values over three groups of members): the four rebuilds together with the two models that read their inputs carry 47% of the edge over guessing, the three pre-trained networks 44%, and the float-grid detector the rest. The difference between the first two groups is not conclusive (1.6 standard errors).
 
 | Group | Alone | Cost of removing it from the final model |
 |---|---|---|

@@ -119,7 +119,7 @@ python -m reads_two_rebuilds.train map       --features-dir "$F" --out-dir "$O"
 python -m reads_two_rebuilds.train head      --out-dir "$O"
 python -m reads_three_others.train --features-dir "$F" --out-dir "$OUT_DIR/reads_three_others"
 
-# sequence networks (GPU), trained on the 8,000 search series
+# sequence networks (GPU), trained on the 8,000 cross-validation series
 python -m common.holdout --out-dir "$OUT_DIR/search_split"
 export SEARCH_DATA_DIR="$OUT_DIR/search_split"
 python -m networks.train_full --variant pointwise --out "$OUT_DIR/broken_or_not"
