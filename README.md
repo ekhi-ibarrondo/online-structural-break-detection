@@ -118,7 +118,7 @@ The float-grid detector finds a grid in 194 of the 10,000 training series. On se
 **Who built and who checked.** Coordinating agents turned my decisions into tasks, one per agent, for researchers, experimenters, builders, blind reviewers and rebuild agents, and agents could launch their own helpers and reviewers. Written instructions set how they worked: before a big plan, the agent suggested an answer to each open question and I decided. The work ran on my laptop, a rented server, Kaggle and Colab.
 
 **What went wrong with the agents.**
-- A coordinating agent left running day and night on the server produced no results for several days; fixed scripts replaced it.
+- I left one agent on the rented server, day and night, to coordinate the others on its own. For several days it produced no results, so I replaced it with fixed scripts that launched each job.
 - Reviewers approved plans that still had one-line bugs, so small bugs in the tooling were then fixed on the spot instead of stopping the work.
 - Heavy jobs run at the same time ran my laptop out of RAM and gave wrong results; they were rerun one at a time.
 
