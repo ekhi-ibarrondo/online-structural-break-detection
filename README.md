@@ -20,7 +20,7 @@ Ten models read a time series one point at a time and, after each new point, giv
 
 I didn't write any of the code myself. I directed AI agents, each with its own job: some read research papers, some ran experiments, some wrote the code and others reviewed it. My part was to:
 - Check and question their work, and give my own ideas
-- Pick the AI model and the effort level for each job
+- Pick the AI model and the effort level for each type of agent
 - Decide what went ahead and approve every submission
 
 <p align="center"><img src="docs/figures/hero.png" width="900" alt="The final model scoring two simulated series point by point: after the break, the score of the series that breaks rises to about 0.8, while the series that never breaks stays near 0.4"><br>
